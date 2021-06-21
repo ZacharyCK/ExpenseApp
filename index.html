@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <section class="section container">
+        <div class="block content" id="header">
+                <h1 class="is-large">Expense Tracker</h1>
+                <h4 class>Add A New Item:</h4>  
+        </div> 
+        <div id="inputs">
+            <div class="columns is-gapless">
+                <div class="field is-horizontal column">
+                    <div class="field-label is-large">
+                      <label class="label">Name: </label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input is-medium" type="text" placeholder="Where was the expense made?" name="name" id="name">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="columns is-gapless">
+                <div class="column is-1"></div>
+                <div class="field is-horizontal column is-6">
+                    <div class="field-label is-large">
+                      <label class="label">Date:</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input is-medium" type="date" name="date" id="date">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal column is-5">
+                    <div class="field-label is-large">
+                      <label class="label">Amount:</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input is-medium" type="text" placeholder="$25" name="amount" id="amount">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns" id="button">
+            <button class="button is-primary is-large column is-one-fifth is-offset-5" id="expense-button" type="submit">Add Expense</button>
+        </div>
+            <table class="table is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="table-entries">
+                    
+                </tbody>
+            </table>
+        
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
