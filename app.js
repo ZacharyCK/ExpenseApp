@@ -6,7 +6,7 @@ const amount = document.querySelector('#amount')
 
 const button = document.querySelector('#expense-button')
 
-let sum_of_expenses = 0
+let sum_of_expenses = 0.00
 const sum = document.createElement('th')
 const sum_label = document.createElement('th')
 const sum_row = document.querySelector('#sum')
@@ -43,7 +43,7 @@ button.addEventListener('click', function(e) {
         new_row.appendChild(new_amount)
         let table = document.querySelector('#table-entries')
         table.appendChild(new_row)
-        sum_of_expenses += parseFloat(new_entry.amount)
+        sum_of_expenses = (parseFloat(parseInt(sum_of_expenses * 100) + parseInt(new_entry.amount * 100)) / 100).toFixed(2)
         sum.textContent = `$${sum_of_expenses}`
         name.value = ''
         date.value = ''
@@ -51,7 +51,7 @@ button.addEventListener('click', function(e) {
         // Event listener for delete button
         new_delete.addEventListener('click', function() {
             table.removeChild(new_row)
-            sum_of_expenses -= new_entry.amount
+            sum_of_expenses = (parseFloat(parseInt(sum_of_expenses * 100) - parseInt(new_entry.amount * 100)) / 100).toFixed(2)
             sum.textContent = `$${sum_of_expenses}`
             expenses.splice(expenses.indexOf(new_entry), 1)
         })
@@ -67,7 +67,7 @@ function getObject(name, date, amount) {
 
     object.name = name
     object.date = date
-    object.amount = parseInt(amount)
+    object.amount = (parseFloat(amount)).toFixed(2)
 
     return object
 }
